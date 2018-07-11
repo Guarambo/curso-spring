@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<div class="container-fluid">
+		<div class="card mt-3">
+			<div class="card-header bg-dark">
+				<ul class="nav nav-tabs card-header-tabs">
+					<li class="nav-item">
+						<a class="nav-link active" href="#" th:text="${title}"></a>
+					</li>
+				</ul>
+			</div>
+			<!-- Permite visualizar cada error/campo que no se lleno correctamente
+		<div th:object="${cliente}" th:remove="tag">
+			<ul th:if="${#fields.hasErrors('*')}" class="alert alert-warning" role="alert">
+				<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+			</ul>
+		</div>
+		-->
+			<!-- Permite visualizar un solo mensaje de Error, si algun campo no se lleno correctamente -->
+			<div th:object="${cliente}" th:remove="tag">
+				<div th:if="${#fields.hasErrors('*')}" class="alert alert-warning" role="alert">
+					<div th:text="${'Porfavor, ingresar los campos resaltados'}"></div>
+				</div>
+			</div>
+			<div class="card-body">
+				<form th:action="@{/form}" th:object="${cliente}" method="post">
+					<div class="row">
+						<div class="col">
+							<label class="col-form-label">Nombre</label> <input type="text" th:field="*{nombre}" class="form-control" placeholder="Nombre"
+								th:errorclass="'form-control alert-warning'" /> <small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}"
+								th:errors="*{nombre}"></small>
+						</div>
+						<div class="col">
+							<label class="col-form-label">Apellido</label> <input type="text" th:field="*{apellido}" class="form-control" placeholder="Apellido"
+								th:errorclass="'form-control alert-warning'" /> <small class="form-text text-danger" th:if="${#fields.hasErrors('apellido')}"
+								th:errors="*{apellido}"></small>
+						</div>
+						<div class="col">
+							<label class="col-form-label">Email</label> <input type="text" th:field="*{email}" class="form-control" placeholder="Email"
+								th:errorclass="'form-control alert-warning'" /> <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}"
+								th:errors="*{email}"></small>
+						</div>
+						<div class="col">
+							<label class="col-form-label">Fecha</label> <input type="text" th:field="*{createAt}" class="form-control"
+								th:errorclass="'form-control alert-warning'" placeholder="dd/mm/yyyy" /> <small class="form-text text-danger"
+								th:if="${#fields.hasErrors('createAt')}" th:errors="*{createAt}"></small>
+						</div>
+					</div>
+					&nbsp;
+					<div class="col-sm-6">
+						<input class="btn btn-primary" type="submit" value="Crear Cliente" />
+					</div>
+					<!--  esta linea es reemplazada por el SessionAttibutes dentro del controller -->
+					<!--  <input type="hidden" th:field="*{id}" /> -->
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
