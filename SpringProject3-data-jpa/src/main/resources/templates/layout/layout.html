@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head th:fragment="head">
 <meta charset="UTF-8" />
 <title th:text="'Titulo Global - SpringBoot ' + ${title}"></title>
-<link rel="stylesheet"th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/fontawesome/css/all.css}">
 </head>
 <body>
 	<header th:fragment="header">
@@ -23,7 +24,6 @@
 				</ul>
 			</div>
 		</nav>
-		
 		<div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
 		<div class="alert alert-danger" th:if="${error != null}" th:text="${error}"></div>
 		<div class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></div>
@@ -32,7 +32,7 @@
 	<div class="container-fluid"></div>
 	<footer th:fragment="footer" class="container-fluid">
 		<hr />
-			<img th:src="@{/images/dogeW.jpg}" alt="Spring logo" class="rounded float-lef" style="max-height: 5%; max-width: 5%"/>
+		<img th:src="@{/images/dogeW.jpg}" alt="Spring logo" class="rounded float-lef" style="max-height: 5%; max-width: 5%" />
 		<p>
 			Esto es un Footer, Desarrollado por <br /> <b> &copy; Guarambo 2K18 </b>
 		</p>

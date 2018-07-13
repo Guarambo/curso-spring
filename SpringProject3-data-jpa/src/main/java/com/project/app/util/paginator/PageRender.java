@@ -63,7 +63,6 @@ public class PageRender<T> {
 		paginaActual = page.getNumber() + 1;
 
 		int startPage, endPage;
-
 		if (totalPaginas <= numElementosPagina) {
 			startPage = 1;
 			endPage = totalPaginas;
@@ -81,7 +80,7 @@ public class PageRender<T> {
 		}
 
 		for (int i = 0; i < endPage; i++) {
-			paginas.add(new PageItem(startPage + i, paginaActual == endPage + i));
+			paginas.add(new PageItem(startPage + i, paginaActual == startPage + i));
 		}
 	}
 }
