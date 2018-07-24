@@ -26,7 +26,7 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form th:action="@{/form}" th:object="${cliente}" method="post">
+				<form th:action="@{/form}" th:object="${cliente}" method="post" enctype="multipart/form-data">
 					<div class="row">
 						<div class="col">
 							<label class="col-form-label">Nombre</label> <input type="text" th:field="*{nombre}" class="form-control" placeholder="Nombre"
@@ -47,6 +47,14 @@
 							<label class="col-form-label">Fecha</label> <input type="text" th:field="*{createAt}" class="form-control"
 								th:errorclass="'form-control alert-warning'" placeholder="dd/mm/yyyy" /> <small class="form-text text-danger"
 								th:if="${#fields.hasErrors('createAt')}" th:errors="*{createAt}"></small>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<label class="col-form-label">Foto</label>
+							<div class="col-sm-6">
+							<input type="file" name="file" class="form-control"/>
+							</div>
 						</div>
 					</div>
 					&nbsp;
