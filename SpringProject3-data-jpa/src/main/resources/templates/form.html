@@ -28,38 +28,36 @@
 			<div class="card-body">
 				<form th:action="@{/form}" th:object="${cliente}" method="post" enctype="multipart/form-data">
 					<div class="row">
-						<div class="col">
-							<label class="col-form-label">Nombre</label> <input type="text" th:field="*{nombre}" class="form-control" placeholder="Nombre"
+						<div class="col-sm-9 col-md-6 col-lg-3">
+							<label class="col-form-label"> Nombre </label> <input type="text" th:field="*{nombre}" class="form-control" placeholder="Nombre"
 								th:errorclass="'form-control alert-warning'" /> <small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}"
 								th:errors="*{nombre}"></small>
 						</div>
-						<div class="col">
+						<div class="col-sm-9 col-md-6 col-lg-3">
 							<label class="col-form-label">Apellido</label> <input type="text" th:field="*{apellido}" class="form-control" placeholder="Apellido"
 								th:errorclass="'form-control alert-warning'" /> <small class="form-text text-danger" th:if="${#fields.hasErrors('apellido')}"
 								th:errors="*{apellido}"></small>
 						</div>
-						<div class="col">
+						<div class="col-sm-9 col-md-6 col-lg-3">
 							<label class="col-form-label">Email</label> <input type="text" th:field="*{email}" class="form-control" placeholder="Email"
 								th:errorclass="'form-control alert-warning'" /> <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}"
 								th:errors="*{email}"></small>
 						</div>
-						<div class="col">
+						<div class="col-sm-9 col-md-6 col-lg-3">
 							<label class="col-form-label">Fecha</label> <input type="text" th:field="*{createAt}" class="form-control"
 								th:errorclass="'form-control alert-warning'" placeholder="dd/mm/yyyy" /> <small class="form-text text-danger"
 								th:if="${#fields.hasErrors('createAt')}" th:errors="*{createAt}"></small>
 						</div>
+						<div class="w-100"></div>
+						<div class="col-sm-9 col-md-6 col-lg-3">
+							<label class="col-form-label">Foto</label> <input type="file" name="file" class="form-control" />
+						</div>
 					</div>
 					<div class="row">
-						<div class="col">
-							<label class="col-form-label">Foto</label>
-							<div class="col-sm-6">
-							<input type="file" name="file" class="form-control"/>
-							</div>
-						</div>
 					</div>
 					&nbsp;
 					<div class="col-sm-6">
-						<input class="btn btn-primary" type="submit" value="Crear Cliente" />
+						<input class="btn btn-primary" type="submit" value="Editar Cliente" />
 					</div>
 					<!--  esta linea es reemplazada por el SessionAttibutes dentro del controller -->
 					<!--  <input type="hidden" th:field="*{id}" /> -->
